@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/cartBottom.dart';
+import 'invoicePage.dart';
+
 class cartPage extends StatefulWidget {
   const cartPage({Key? key}) : super(key: key);
 
@@ -9,6 +12,23 @@ class cartPage extends StatefulWidget {
 }
 
 class _cartPageState extends State<cartPage> {
+  int breadvalue = 25;
+  int bunvalue = 15;
+  int totalvalue = 0;
+  int? newvalue;
+  int? bunnewvalue;
+  int quantity = 0;
+  int bunQuantity = 0;
+  int? totalValue;
+
+  @override
+  void initState() {
+    newvalue = 0;
+    bunnewvalue = 0;
+    totalValue = 0;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +85,7 @@ class _cartPageState extends State<cartPage> {
                             child: Image.asset(
                               "assets/images/Bread.png",
                               height: 80,
-                              width: 120,
+                              width: 100,
                             ),
                           ),
                           Container(
@@ -83,7 +103,7 @@ class _cartPageState extends State<cartPage> {
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 Text(
-                                  "\$20",
+                                  "\$ 25",
                                   style: TextStyle(
                                       fontSize: 18, color: Colors.red),
                                 )
@@ -102,17 +122,34 @@ class _cartPageState extends State<cartPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(
-                                    Icons.arrow_drop_up,
-                                    color: Colors.white,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        newvalue = breadvalue +
+                                            (quantity * breadvalue);
+                                        quantity++;
+                                        totalValue = (newvalue! + bunnewvalue!);
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_drop_up,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   Text(
-                                    "1",
+                                    quantity.toString(),
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                  Icon(
-                                    Icons.arrow_drop_down_sharp,
-                                    color: Colors.white,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        quantity--;
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_drop_down_sharp,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -143,7 +180,7 @@ class _cartPageState extends State<cartPage> {
                             child: Image.asset(
                               "assets/images/Bun.png",
                               height: 80,
-                              width: 120,
+                              width: 100,
                             ),
                           ),
                           Container(
@@ -180,17 +217,35 @@ class _cartPageState extends State<cartPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(
-                                    Icons.arrow_drop_up,
-                                    color: Colors.white,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        bunnewvalue =
+                                            bunvalue + (bunQuantity * bunvalue);
+                                        bunQuantity++;
+
+                                        totalValue = (newvalue! + bunnewvalue!);
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_drop_up,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   Text(
-                                    "3",
+                                    bunQuantity.toString(),
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                  Icon(
-                                    Icons.arrow_drop_down_sharp,
-                                    color: Colors.white,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        bunQuantity--;
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_drop_down_sharp,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -200,162 +255,162 @@ class _cartPageState extends State<cartPage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              spreadRadius: 3,
-                              blurRadius: 10,
-                              offset: Offset(0, 3)),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "assets/images/Cake.png",
-                              height: 80,
-                              width: 120,
-                            ),
-                          ),
-                          Container(
-                            width: 190,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Cake",
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Text(
-                                  "The Best Quality",
-                                  style: TextStyle(fontSize: 15),
-                                ),
-                                Text(
-                                  "\$20",
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.red),
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_drop_up,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    "2",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down_sharp,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              spreadRadius: 3,
-                              blurRadius: 10,
-                              offset: Offset(0, 3)),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "assets/images/Rice.png",
-                              height: 80,
-                              width: 120,
-                            ),
-                          ),
-                          Container(
-                            width: 190,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Rice",
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Text(
-                                  "The Best Quality",
-                                  style: TextStyle(fontSize: 15),
-                                ),
-                                Text(
-                                  "\$20",
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.red),
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_drop_up,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    "2",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down_sharp,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Container(
+                  //     height: 100,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.white,
+                  //       borderRadius: BorderRadius.circular(10),
+                  //       boxShadow: [
+                  //         BoxShadow(
+                  //             color: Colors.grey,
+                  //             spreadRadius: 3,
+                  //             blurRadius: 10,
+                  //             offset: Offset(0, 3)),
+                  //       ],
+                  //     ),
+                  //     child: Row(
+                  //       children: [
+                  //         Container(
+                  //           child: Image.asset(
+                  //             "assets/images/Cake.png",
+                  //             height: 80,
+                  //             width: 100,
+                  //           ),
+                  //         ),
+                  //         Container(
+                  //           width: 190,
+                  //           child: Column(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                  //             children: [
+                  //               Text(
+                  //                 "Cake",
+                  //                 style: TextStyle(fontSize: 20),
+                  //               ),
+                  //               Text(
+                  //                 "The Best Quality",
+                  //                 style: TextStyle(fontSize: 15),
+                  //               ),
+                  //               Text(
+                  //                 "\$20",
+                  //                 style: TextStyle(
+                  //                     fontSize: 18, color: Colors.red),
+                  //               )
+                  //             ],
+                  //           ),
+                  //         ),
+                  //         Padding(
+                  //           padding: EdgeInsets.symmetric(vertical: 8),
+                  //           child: Container(
+                  //             padding: EdgeInsets.all(5),
+                  //             decoration: BoxDecoration(
+                  //               color: Colors.red,
+                  //               borderRadius: BorderRadius.circular(10),
+                  //             ),
+                  //             child: Column(
+                  //               mainAxisAlignment:
+                  //                   MainAxisAlignment.spaceBetween,
+                  //               children: [
+                  //                 Icon(
+                  //                   Icons.arrow_drop_up,
+                  //                   color: Colors.white,
+                  //                 ),
+                  //                 Text(
+                  //                   "2",
+                  //                   style: TextStyle(color: Colors.white),
+                  //                 ),
+                  //                 Icon(
+                  //                   Icons.arrow_drop_down_sharp,
+                  //                   color: Colors.white,
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Container(
+                  //     height: 100,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.white,
+                  //       borderRadius: BorderRadius.circular(10),
+                  //       boxShadow: [
+                  //         BoxShadow(
+                  //             color: Colors.grey,
+                  //             spreadRadius: 3,
+                  //             blurRadius: 10,
+                  //             offset: Offset(0, 3)),
+                  //       ],
+                  //     ),
+                  //     child: Row(
+                  //       children: [
+                  //         Container(
+                  //           child: Image.asset(
+                  //             "assets/images/Rice.png",
+                  //             height: 80,
+                  //             width: 100,
+                  //           ),
+                  //         ),
+                  //         Container(
+                  //           width: 190,
+                  //           child: Column(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                  //             children: [
+                  //               Text(
+                  //                 "Rice",
+                  //                 style: TextStyle(fontSize: 20),
+                  //               ),
+                  //               Text(
+                  //                 "The Best Quality",
+                  //                 style: TextStyle(fontSize: 15),
+                  //               ),
+                  //               Text(
+                  //                 "\$20",
+                  //                 style: TextStyle(
+                  //                     fontSize: 18, color: Colors.red),
+                  //               )
+                  //             ],
+                  //           ),
+                  //         ),
+                  //         Padding(
+                  //           padding: EdgeInsets.symmetric(vertical: 8),
+                  //           child: Container(
+                  //             padding: EdgeInsets.all(5),
+                  //             decoration: BoxDecoration(
+                  //               color: Colors.red,
+                  //               borderRadius: BorderRadius.circular(10),
+                  //             ),
+                  //             child: Column(
+                  //               mainAxisAlignment:
+                  //                   MainAxisAlignment.spaceBetween,
+                  //               children: [
+                  //                 Icon(
+                  //                   Icons.arrow_drop_up,
+                  //                   color: Colors.white,
+                  //                 ),
+                  //                 Text(
+                  //                   "2",
+                  //                   style: TextStyle(color: Colors.white),
+                  //                 ),
+                  //                 Icon(
+                  //                   Icons.arrow_drop_down_sharp,
+                  //                   color: Colors.white,
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                     child: Container(
@@ -383,7 +438,7 @@ class _cartPageState extends State<cartPage> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
-                                  "4",
+                                  "2",
                                   style: TextStyle(fontSize: 20),
                                 ),
                               ],
@@ -402,7 +457,7 @@ class _cartPageState extends State<cartPage> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
-                                  "\$20",
+                                  "\$$newvalue",
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ],
@@ -418,44 +473,44 @@ class _cartPageState extends State<cartPage> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
-                                  "\$15",
+                                  "\$$bunnewvalue",
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Cake",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Text(
-                                  "\$20",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Rice",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Text(
-                                  "\$20",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ],
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: EdgeInsets.symmetric(vertical: 10),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //     children: [
+                          //       Text(
+                          //         "Cake",
+                          //         style: TextStyle(fontSize: 18),
+                          //       ),
+                          //       Text(
+                          //         "\$20",
+                          //         style: TextStyle(fontSize: 18),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
+                          // Padding(
+                          //   padding: EdgeInsets.symmetric(vertical: 10),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //     children: [
+                          //       Text(
+                          //         "Rice",
+                          //         style: TextStyle(fontSize: 18),
+                          //       ),
+                          //       Text(
+                          //         "\$20",
+                          //         style: TextStyle(fontSize: 18),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
                           Divider(
                             color: Colors.black,
                           ),
@@ -466,12 +521,16 @@ class _cartPageState extends State<cartPage> {
                               children: [
                                 Text(
                                   "Total",
-                                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  "\$75",
-                                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red
-                                  ),
+                                  "\$$totalValue",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red),
                                 ),
                               ],
                             ),
@@ -485,6 +544,64 @@ class _cartPageState extends State<cartPage> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          height: 70,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "Total:",
+                    style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "\$$totalValue",
+                    style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  )
+                ],
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => invoicePage(),
+                    ),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.red),
+                  padding: MaterialStatePropertyAll(
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                ),
+                child: Text(
+                  "Save Items",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -26,6 +26,69 @@ class _customerPageState extends State<customerPage> {
           ),
         ),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextFormField(
+              maxLines: 1,
+              minLines: 1,
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                hintText: 'Customer Table No',
+                hintStyle: TextStyle(color: Colors.grey),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              maxLines: 1,
+              minLines: 1,
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                hintText: 'Customer Name',
+                hintStyle: TextStyle(color: Colors.grey),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              maxLines: 1,
+              minLines: 1,
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                hintText: 'Total Customers',
+                hintStyle: TextStyle(color: Colors.grey),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Icon(Icons.save),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

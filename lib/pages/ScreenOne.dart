@@ -12,7 +12,7 @@ class screenOne extends StatefulWidget {
 }
 
 class _screenOneState extends State<screenOne> {
-  final items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  final items = ['Bread', 'Bun', 'Cake', 'Rice'];
   String? value;
 
   @override

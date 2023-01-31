@@ -31,7 +31,9 @@ class _loginPageState extends State<loginPage> {
                           margin: EdgeInsets.only(top: 10),
                           child: Center(
                             child: SvgPicture.asset(
-                                "assets/images/undraw_breakfast_psiw.svg"),
+                              "assets/images/undraw_breakfast_psiw.svg",
+                              width: 300,
+                            ),
                           ),
                         ),
                       ),
