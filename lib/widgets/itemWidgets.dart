@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/constants/colors.dart';
 
 class itemWidgets extends StatefulWidget {
   const itemWidgets({Key? key}) : super(key: key);
@@ -76,10 +77,14 @@ class _itemWidgetsState extends State<itemWidgets> {
                         Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.blueAccent,
+                            color: buttonColors,
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Icon(Icons.add,size: 16,color: Colors.white,),
+                          child: Icon(
+                            Icons.add,
+                            size: 16,
+                            color: Colors.white,
+                          ),
                         )
                       ],
                     ),

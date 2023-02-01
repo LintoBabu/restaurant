@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/ScreenOne.dart';
+import 'package:restaurant/pages/SalesPage.dart';
 import 'package:restaurant/pages/customerDetails.dart';
 
 class homePage extends StatefulWidget {
@@ -107,7 +107,7 @@ class _homePageState extends State<homePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => screenOne(),
+                    builder: (context) => SalesPage(),
                   ),
                 );
               },

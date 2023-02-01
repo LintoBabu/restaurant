@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:restaurant/constants/colors.dart';
+import 'package:restaurant/pages/SuccessPage.dart';
 
 import '../widgets/cartBottom.dart';
 import 'invoicePage.dart';
@@ -35,7 +37,7 @@ class _cartPageState extends State<cartPage> {
       appBar: AppBar(
         title: Text("Cart", style: GoogleFonts.aleo(letterSpacing: 3)),
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: colorAppbar,
         elevation: 0,
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -115,7 +117,7 @@ class _cartPageState extends State<cartPage> {
                             child: Container(
                               padding: EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: Colors.red,
+                                color: buttonColors,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Column(
@@ -214,7 +216,7 @@ class _cartPageState extends State<cartPage> {
                             child: Container(
                               padding: EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: Colors.red,
+                                color: buttonColors,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Column(
@@ -588,12 +590,12 @@ class _cartPageState extends State<cartPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => invoicePage(),
+                      builder: (context) => SuccessPage(),
                     ),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.red),
+                  backgroundColor: MaterialStatePropertyAll(buttonColors),
                   padding: MaterialStatePropertyAll(
                     EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   ),
