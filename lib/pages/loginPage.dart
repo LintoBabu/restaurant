@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/homePage.dart';
 
 class loginPage extends StatefulWidget {
@@ -128,7 +129,7 @@ class _loginPageState extends State<loginPage> {
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              color: Colors.blueAccent),
+                              color: buttonColors),
                           child: Center(
                               child: Text("Login",
                                   style: GoogleFonts.anticDidone(
