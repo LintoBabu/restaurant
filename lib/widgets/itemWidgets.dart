@@ -38,6 +38,7 @@ class _itemWidgetsState extends State<itemWidgets> {
                   InkWell(
                     onTap: () {},
                     child: Container(
+                      height: 100,
                       margin: EdgeInsets.all(10),
                       child: Image.asset(
                         "assets/images/${image[i]}.png",

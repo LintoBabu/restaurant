@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/SuccessPage.dart';
-
-import '../widgets/cartBottom.dart';
-import 'invoicePage.dart';
-
 class cartPage extends StatefulWidget {
   const cartPage({Key? key}) : super(key: key);
 

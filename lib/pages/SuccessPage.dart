@@ -34,7 +34,7 @@ class _SuccessPageState extends State<SuccessPage> {
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) => homePage(),

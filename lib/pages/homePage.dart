@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/SalesPage.dart';
 import 'package:restaurant/pages/customerDetails.dart';
+import 'package:restaurant/pages/invoicePage.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -90,8 +91,9 @@ class _homePageState extends State<homePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: Container(
-                        height: MediaQuery.of(context).size.height / 14,
-                        child: Image.asset("assets/images/img.png"),),
+                      height: MediaQuery.of(context).size.height / 14,
+                      child: Image.asset("assets/images/img.png"),
+                    ),
                   )),
             ],
           ),
@@ -135,7 +137,7 @@ class _homePageState extends State<homePage> {
                         height: 10,
                       ),
                       Image.asset(
-                        "assets/images/bill.png",
+                        "assets/images/pos-terminal.png",
                         height: 60,
                       )
                     ],
@@ -143,34 +145,40 @@ class _homePageState extends State<homePage> {
                 ),
               ),
             ),
-            Container(
-              height: 150,
-              width: 150,
-              child: Card(
-                elevation: 7,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                color: buttonColors,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Invoice",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.notoSans(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      "assets/images/pos-terminal.png",
-                      height: 60,
-                    )
-                  ],
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => invoicePage()));
+              },
+              child: Container(
+                height: 150,
+                width: 150,
+                child: Card(
+                  elevation: 7,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: buttonColors,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Invoice",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.notoSans(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Image.asset(
+                        "assets/images/bill.png",
+                        height: 60,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
