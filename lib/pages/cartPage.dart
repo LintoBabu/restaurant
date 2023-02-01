@@ -143,7 +143,11 @@ class _cartPageState extends State<cartPage> {
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        quantity--;
+                                        if (quantity != 0) {
+                                          newvalue = (--quantity) * breadvalue;
+                                          totalValue =
+                                              (newvalue! - bunnewvalue!);
+                                        } else {}
                                       });
                                     },
                                     child: Icon(
@@ -239,7 +243,12 @@ class _cartPageState extends State<cartPage> {
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        bunQuantity--;
+                                        if (bunQuantity != 0) {
+                                          bunnewvalue =
+                                              (--bunQuantity) * bunvalue;
+                                          totalValue =
+                                              (bunnewvalue! - newvalue!);
+                                        } else {}
                                       });
                                     },
                                     child: Icon(
