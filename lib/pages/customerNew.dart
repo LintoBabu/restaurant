@@ -37,7 +37,7 @@ class _customerPageState extends State<customerPage> {
               minLines: 1,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
-                hintText: 'Customer Table No',
+                hintText: 'Mobile Number',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.teal, width: 1),
@@ -55,7 +55,7 @@ class _customerPageState extends State<customerPage> {
               minLines: 1,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
-                hintText: 'Customer Name',
+                hintText: 'Name',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.teal, width: 1),
@@ -73,7 +73,25 @@ class _customerPageState extends State<customerPage> {
               minLines: 1,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
-                hintText: 'Total Customers',
+                hintText: 'Location',
+                hintStyle: TextStyle(color: Colors.grey),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.teal, width: 1),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              maxLines: 3,
+              minLines: 3,
+              keyboardType: TextInputType.multiline,
+              decoration: InputDecoration(
+                hintText: 'Notes',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.teal, width: 1),

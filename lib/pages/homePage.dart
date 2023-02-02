@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/SalesPage.dart';
-import 'package:restaurant/pages/customerDetails.dart';
 import 'package:restaurant/pages/invoicePage.dart';
 
 class homePage extends StatefulWidget {
