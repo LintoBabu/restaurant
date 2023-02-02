@@ -8,7 +8,8 @@ class Cart {
   final String? image;
 
   Cart(
-      {required this.productId,
+      {required this.id,
+      required this.productId,
       required this.productName,
       required this.initialPrice,
       required this.productPrice,

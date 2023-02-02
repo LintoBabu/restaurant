@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:restaurant/Provider/cartProvider.dart';
 import 'package:restaurant/pages/loginPage.dart';
 
 void main() {
@@ -11,9 +13,16 @@ class newApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: loginPage(),
+    return ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: Builder(
+        builder: (BuildContext context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: loginPage(),
+          );
+        },
+      ),
     );
   }
 }
