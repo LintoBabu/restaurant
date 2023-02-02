@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/cartPage.dart';
 import 'package:restaurant/pages/customerNew.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -76,7 +75,7 @@ class _SalesPageState extends State<SalesPage> {
                   ),
                 );
               },
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(Icons.add),
             ),
           ),
           IconButton(
@@ -86,7 +85,7 @@ class _SalesPageState extends State<SalesPage> {
                 "0",
                 style: TextStyle(color: Colors.white),
               ),
-              child: Icon(Icons.add_shopping_cart),
+              child: Icon(Icons.shopping_cart),
               badgeAnimation: badges.BadgeAnimation.rotation(
                 animationDuration: Duration(seconds: 1),
               ),
