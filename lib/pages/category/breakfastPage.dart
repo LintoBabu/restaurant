@@ -18,15 +18,17 @@ class _breakFastState extends State<breakFast> {
   List<String> productName = [
     'Bread',
     'Bun',
-    'Cake',
-    'Rice',
+    'Chapati',
+    'Poori',
+    'Dosa',
   ];
-  List<int> productPrice = [10, 20, 30, 40];
+  List<int> productPrice = [10, 20, 30, 40,50];
   List<String> productImage = [
     'https://images.unsplash.com/photo-1598373182133-52452f7691ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJyZWFkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     'https://images.unsplash.com/photo-1592811773343-9abf0b1a6920?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-    'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80',
-    'https://img.freepik.com/free-photo/cooked-plain-white-basmati-rice-steamed-rice-bowl_466689-74907.jpg?w=2000',
+    "https://media.istockphoto.com/id/508374340/photo/homemade-chapati.jpg?s=612x612&w=0&k=20&c=lozsrleZ88efHFdMYCtUkyUW5mTqXVDoFp_jtI2s53Q=",
+    "https://thumbs.dreamstime.com/b/puri-bhaji-indian-dish-made-up-aloo-38512979.jpg",
+    "https://thumbs.dreamstime.com/b/indian-dosa-special-food-made-rice-lentils-south-india-84751483.jpg"
   ];
 
   final itemz = ['Linto', 'Rahul', 'Jubin', 'Rumaise'];
