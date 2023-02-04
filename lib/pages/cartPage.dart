@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:restaurant/Provider/cartProvider.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/SuccessPage.dart';
+import 'package:restaurant/pages/paymentPage.dart';
 
 import '../Model/cart_model.dart';
 import '../db/db.dart';
@@ -655,15 +656,31 @@ class _cartScreenState extends State<cartScreen> {
             builder: (context, AsyncSnapshot<List<Cart>> snapshot) {
               if (snapshot.hasData) {
                 if (snapshot.data!.isEmpty) {
-                  return Center(
-                    child: Text("No Data Available"),
+                  return Column(
+                    children: [
+                      Image.asset("assets/images/cart.png", height: 400),
+                    ],
                   );
                 } else {
                   return Expanded(
                     child: ListView.builder(
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
-                        return Card(
+                        return Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          margin:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 13),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.4),
+                                  spreadRadius: 1,
+                                  blurRadius: 8),
+                            ],
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
@@ -675,10 +692,9 @@ class _cartScreenState extends State<cartScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Image(
-                                      height: 100,
-                                      width: 100,
-                                      image: NetworkImage(
+                                    CircleAvatar(
+                                      radius: 45,
+                                      backgroundImage: NetworkImage(
                                         snapshot.data![index].image.toString(),
                                       ),
                                     ),
@@ -700,12 +716,44 @@ class _cartScreenState extends State<cartScreen> {
                                                 snapshot
                                                     .data![index].productName
                                                     .toString(),
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 16),
+                                                style: GoogleFonts.arvo(
+                                                    fontSize: 22),
                                               ),
                                               IconButton(
                                                 onPressed: () {
+                                                  final snackBar = SnackBar(
+                                                    content: Row(
+                                                      children: [
+                                                        Text(
+                                                          "Item Deleted Successfully",
+                                                          style: GoogleFonts
+                                                              .aBeeZee(
+                                                                  fontSize: 15,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Icon(
+                                                          Icons.done,
+                                                          color: Colors.white,
+                                                          size: 20,
+                                                        )
+                                                      ],
+                                                    ),
+                                                    behavior: SnackBarBehavior
+                                                        .floating,
+                                                    margin: EdgeInsets.all(15),
+                                                    backgroundColor:
+                                                        colorAppbar,
+                                                    elevation: 7,
+                                                    duration:
+                                                        Duration(seconds: 1),
+                                                  );
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(snackBar);
                                                   dbHelper!.delete(snapshot
                                                       .data![index].id!);
                                                   cart.removeCounter();
@@ -720,13 +768,13 @@ class _cartScreenState extends State<cartScreen> {
                                             ],
                                           ),
                                           Text(
-                                            "\$" +
+                                            "\AED " +
                                                 snapshot
                                                     .data![index].productPrice
                                                     .toString(),
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 16,
+                                                fontSize: 18,
                                                 color: Colors.red),
                                           ),
                                           Align(
@@ -737,7 +785,7 @@ class _cartScreenState extends State<cartScreen> {
                                                   height: 35,
                                                   width: 100,
                                                   decoration: BoxDecoration(
-                                                    color: Colors.grey,
+                                                    color: buttonColors,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12),
@@ -752,72 +800,79 @@ class _cartScreenState extends State<cartScreen> {
                                                               .spaceBetween,
                                                       children: [
                                                         InkWell(
-                                                            onTap: () {
-                                                              int quantity =
-                                                                  snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .quantity!;
-                                                              int price = snapshot
-                                                                  .data![index]
-                                                                  .initialPrice!;
-                                                              quantity--;
-                                                              int? newprice =
-                                                                  price *
-                                                                      quantity;
+                                                          onTap: () {
+                                                            int quantity =
+                                                                snapshot
+                                                                    .data![
+                                                                        index]
+                                                                    .quantity!;
+                                                            int price = snapshot
+                                                                .data![index]
+                                                                .initialPrice!;
+                                                            quantity--;
+                                                            int? newprice =
+                                                                price *
+                                                                    quantity;
 
-                                                              if (quantity >
-                                                                  0) {
-                                                                dbHelper!
-                                                                    .updateQuantity(Cart(
-                                                                        id: snapshot
-                                                                            .data![
-                                                                                index]
-                                                                            .id,
-                                                                        productId: snapshot
-                                                                            .data![
-                                                                                index]
-                                                                            .id
-                                                                            .toString(),
-                                                                        productName: snapshot
-                                                                            .data![
-                                                                                index]
-                                                                            .productName,
-                                                                        initialPrice: snapshot
-                                                                            .data![
-                                                                                index]
-                                                                            .initialPrice!,
-                                                                        productPrice:
-                                                                            newprice,
-                                                                        quantity:
-                                                                            quantity,
-                                                                        image: snapshot
-                                                                            .data![
-                                                                                index]
-                                                                            .image
-                                                                            .toString()))
-                                                                    .then(
-                                                                        (value) {
-                                                                  newprice = 0;
-                                                                  quantity = 0;
-                                                                  cart.removeTotalPrice(double.parse(snapshot
-                                                                      .data![
-                                                                          index]
-                                                                      .initialPrice
-                                                                      .toString()));
-                                                                }).onError((error,
-                                                                        stackTrace) {
-                                                                  print(error
-                                                                      .toString());
-                                                                });
-                                                              }
-                                                            },
-                                                            child: Icon(
-                                                                Icons.remove)),
-                                                        Text(snapshot
-                                                            .data![index]
-                                                            .quantity
-                                                            .toString()),
+                                                            if (quantity > 0) {
+                                                              dbHelper!
+                                                                  .updateQuantity(Cart(
+                                                                      id: snapshot
+                                                                          .data![
+                                                                              index]
+                                                                          .id,
+                                                                      productId: snapshot
+                                                                          .data![
+                                                                              index]
+                                                                          .id
+                                                                          .toString(),
+                                                                      productName: snapshot
+                                                                          .data![
+                                                                              index]
+                                                                          .productName,
+                                                                      initialPrice: snapshot
+                                                                          .data![
+                                                                              index]
+                                                                          .initialPrice!,
+                                                                      productPrice:
+                                                                          newprice,
+                                                                      quantity:
+                                                                          quantity,
+                                                                      image: snapshot
+                                                                          .data![
+                                                                              index]
+                                                                          .image
+                                                                          .toString()))
+                                                                  .then(
+                                                                      (value) {
+                                                                newprice = 0;
+                                                                quantity = 0;
+                                                                cart.removeTotalPrice(
+                                                                    double.parse(snapshot
+                                                                        .data![
+                                                                            index]
+                                                                        .initialPrice
+                                                                        .toString()));
+                                                              }).onError((error,
+                                                                      stackTrace) {
+                                                                print(error
+                                                                    .toString());
+                                                              });
+                                                            }
+                                                          },
+                                                          child: Icon(
+                                                            Icons.remove,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          snapshot.data![index]
+                                                              .quantity
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
                                                         InkWell(
                                                             onTap: () {
                                                               int quantity =
@@ -877,8 +932,11 @@ class _cartScreenState extends State<cartScreen> {
                                                                     .toString());
                                                               });
                                                             },
-                                                            child:
-                                                                Icon(Icons.add))
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                            ))
                                                       ],
                                                     ),
                                                   )),
@@ -910,8 +968,8 @@ class _cartScreenState extends State<cartScreen> {
                 child: Column(
                   children: [
                     updatePageWidget(
-                      title: "Total",
-                      value: r'$' + value.getTotalPrice().toStringAsFixed(2),
+                      title: "Total Price :",
+                      value: r'AED  ' + value.getTotalPrice().toStringAsFixed(2),
                     )
                   ],
                 ),
@@ -931,12 +989,47 @@ class updatePageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(fontSize: 16)),
-          Text(value.toString())
+          Text(
+            title,
+            style: GoogleFonts.arvo(fontWeight: FontWeight.bold, fontSize: 17),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Text(value.toString(),
+              style: GoogleFonts.arvo(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                  color: Colors.red)),
+          Spacer(),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PaymentPage(),
+                ),
+              );
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(buttonColors),
+              padding: MaterialStatePropertyAll(
+                EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              ),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            child: Text(
+              "Save Items",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+          )
         ],
       ),
     );

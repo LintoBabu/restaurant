@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/SalesPage.dart';
+import 'package:restaurant/pages/customerNew.dart';
 import 'package:restaurant/pages/invoicePage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -12,6 +14,12 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  String _url = "https://bluesky.ae/index.html#page-aboutus";
+
+  void _launchURL(urldetails) async => await canLaunch(urldetails)
+      ? await launch(urldetails)
+      : throw 'Could not launch ${urldetails}';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +70,18 @@ class _homePageState extends State<homePage> {
                 ),
                 onTap: () {},
               ),
+              ListTile(
+                leading: Icon(Icons.notes_rounded),
+                title: Text(
+                  'About us',
+                  style: GoogleFonts.kanit(fontSize: 20),
+                ),
+                onTap: () {
+                  _launchURL(_url);
+                },
+              ),
               Container(
-                height: MediaQuery.of(context).size.width / 1,
+                height: MediaQuery.of(context).size.width,
               ),
               Container(
                 child: Padding(
@@ -98,91 +116,133 @@ class _homePageState extends State<homePage> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SalesPage(),
-                  ),
-                );
-              },
-              child: Container(
-                height: 150,
-                width: 150,
-                child: Card(
-                  elevation: 7,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  color: buttonColors,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Sales",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.notoSans(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Image.asset(
-                        "assets/images/pos-terminal.png",
-                        height: 60,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => invoicePage()));
-              },
-              child: Container(
-                height: 150,
-                width: 150,
-                child: Card(
-                  elevation: 7,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  color: buttonColors,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Invoice",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.notoSans(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Image.asset(
-                        "assets/images/bill.png",
-                        height: 60,
-                      )
-                    ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SalesPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Sales",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/pos-terminal.png",
+                          height: 60,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => invoicePage()));
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Invoice",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/bill.png",
+                          height: 60,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => customerPage()));
+            },
+            child: Container(
+              height: 150,
+              width: MediaQuery.of(context).size.width / 2,
+              child: Card(
+                elevation: 7,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                color: buttonColors,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Customer",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.notoSans(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Image.asset(
+                      "assets/images/customer.png",
+                      height: 60,
+                    )
+                  ],
+                ),
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
