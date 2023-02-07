@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:restaurant/pages/invoice%20category/Details/invoicePendingDetailsPage.dart';
 
-class pendingInvoice extends StatefulWidget {
-  const pendingInvoice({Key? key}) : super(key: key);
+import 'Details/completedInvoice.dart';
+
+class completedInvoice extends StatefulWidget {
+  const completedInvoice({Key? key}) : super(key: key);
 
   @override
-  State<pendingInvoice> createState() => _pendingInvoiceState();
+  State<completedInvoice> createState() => _completedInvoiceState();
 }
 
-class _pendingInvoiceState extends State<pendingInvoice> {
+class _completedInvoiceState extends State<completedInvoice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _pendingInvoiceState extends State<pendingInvoice> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => pendingInvoiceDetails()));
+                        builder: (context) => completedInvoiceDetails()));
               },
               child: Card(
                 child: ListTile(
@@ -35,7 +36,7 @@ class _pendingInvoiceState extends State<pendingInvoice> {
                         fontWeight: FontWeight.bold),
                   ),
                   title: Text(
-                    "Rahul Vs",
+                    "Kiran Raj",
                     style: GoogleFonts.anekGujarati(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -43,7 +44,7 @@ class _pendingInvoiceState extends State<pendingInvoice> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        "Invoice : INV-21-12-010",
+                        "Invoice : INV-21-12-009",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
                       ),

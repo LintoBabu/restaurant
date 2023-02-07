@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant/Provider/cartProvider.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/paymentPage.dart';
+import 'package:restaurant/pages/salesPage/payment/paymentPage.dart';
 
-import '../Model/cart_model.dart';
-import '../db/db.dart';
+import '../../../Model/cart_model.dart';
+import '../../../db/db.dart';
 
 class cartScreen extends StatefulWidget {
   const cartScreen({Key? key}) : super(key: key);

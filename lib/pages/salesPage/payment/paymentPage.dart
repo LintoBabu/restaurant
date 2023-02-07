@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:restaurant/pages/SuccessPage.dart';
+import 'package:restaurant/pages/salesPage/payment/SuccessPage.dart';
 
-import '../constants/colors.dart';
+import '../../../constants/colors.dart';
 
 class PaymentPage extends StatefulWidget {
   const PaymentPage({Key? key}) : super(key: key);

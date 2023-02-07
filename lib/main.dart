@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant/Provider/cartProvider.dart';
-import 'package:restaurant/pages/loginPage.dart';
+import 'package:restaurant/pages/loginPage/loginPage.dart';
 
 void main() {
   runApp(const newApp());

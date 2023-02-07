@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/homePage.dart';
+import 'package:restaurant/pages/homePage/homePage.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);

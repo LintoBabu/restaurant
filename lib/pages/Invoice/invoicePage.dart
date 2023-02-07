@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/invoice%20category/completed%20Invoice.dart';
-import 'package:restaurant/pages/invoice%20category/pending%20Invoice.dart';
+import 'invoice category/completed Invoice.dart';
+import 'invoice category/pending Invoice.dart';
 
 class invoicePage extends StatefulWidget {
   const invoicePage({Key? key}) : super(key: key);

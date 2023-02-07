@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/homePage.dart';
+import 'package:restaurant/pages/homePage/homePage.dart';
 
 class SuccessPage extends StatefulWidget {
   const SuccessPage({Key? key}) : super(key: key);

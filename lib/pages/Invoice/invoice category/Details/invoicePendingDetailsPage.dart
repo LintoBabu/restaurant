@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../constants/colors.dart';
+import '../../../../constants/colors.dart';
 
 class pendingInvoiceDetails extends StatefulWidget {
   const pendingInvoiceDetails({Key? key}) : super(key: key);
@@ -37,7 +37,7 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
             Container(
               padding: EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/2,
+              height: MediaQuery.of(context).size.height / 2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
               ),

@@ -4,16 +4,16 @@ import 'package:provider/provider.dart';
 import 'package:restaurant/Provider/cartProvider.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/db/db.dart';
-import 'package:restaurant/pages/cartPage.dart';
-import 'package:restaurant/pages/customerNew.dart';
+import 'package:restaurant/pages/salesPage/cart/cartPage.dart';
+import 'package:restaurant/pages/customerList/customerNew.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:restaurant/pages/food%20category/dessert.dart';
 import 'package:restaurant/pages/food%20category/juicePage.dart';
 import 'package:restaurant/pages/food%20category/snacks.dart';
 
-import 'food category/DinnerPage.dart';
-import 'food category/breakfastPage.dart';
-import 'food category/lunchPage.dart';
+import '../food category/DinnerPage.dart';
+import '../food category/breakfastPage.dart';
+import '../food category/lunchPage.dart';
 
 class SalesPage extends StatefulWidget {
   const SalesPage({Key? key}) : super(key: key);

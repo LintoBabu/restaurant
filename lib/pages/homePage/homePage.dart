@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
-import 'package:restaurant/pages/SalesPage.dart';
-import 'package:restaurant/pages/customerNew.dart';
-import 'package:restaurant/pages/invoicePage.dart';
+import 'package:restaurant/pages/MessPage/addMess.dart';
+import 'package:restaurant/pages/salesPage/SalesPage.dart';
+import 'package:restaurant/pages/customerList/customerNew.dart';
+import 'package:restaurant/pages/Invoice/invoicePage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class homePage extends StatefulWidget {
@@ -81,7 +82,7 @@ class _homePageState extends State<homePage> {
                 },
               ),
               Container(
-                height: MediaQuery.of(context).size.width/1.2,
+                height: MediaQuery.of(context).size.width / 1.2,
               ),
               Container(
                 child: Row(
@@ -202,42 +203,83 @@ class _homePageState extends State<homePage> {
           SizedBox(
             height: 10,
           ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => customerPage()));
-            },
-            child: Container(
-              height: 150,
-              width: MediaQuery.of(context).size.width / 2,
-              child: Card(
-                elevation: 7,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                color: buttonColors,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Customer",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.notoSans(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => customerPage()));
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    SizedBox(
-                      height: 10,
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Customer",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/customer.png",
+                          height: 60,
+                        )
+                      ],
                     ),
-                    Image.asset(
-                      "assets/images/customer.png",
-                      height: 60,
-                    )
-                  ],
+                  ),
                 ),
               ),
-            ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => addMessPage()));
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Mess",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/hot-pot.png",
+                          height: 60,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

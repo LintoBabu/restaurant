@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:restaurant/pages/invoice%20category/Details/completedInvoice.dart';
 
-class completedInvoice extends StatefulWidget {
-  const completedInvoice({Key? key}) : super(key: key);
+import 'Details/invoicePendingDetailsPage.dart';
+
+class pendingInvoice extends StatefulWidget {
+  const pendingInvoice({Key? key}) : super(key: key);
 
   @override
-  State<completedInvoice> createState() => _completedInvoiceState();
+  State<pendingInvoice> createState() => _pendingInvoiceState();
 }
 
-class _completedInvoiceState extends State<completedInvoice> {
+class _pendingInvoiceState extends State<pendingInvoice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +22,23 @@ class _completedInvoiceState extends State<completedInvoice> {
             child: InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => completedInvoiceDetails()));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => pendingInvoiceDetails(),
+                  ),
+                );
               },
               child: Card(
                 child: ListTile(
                   leading: const Text(
-                    "AED 85",
+                    "AED 65",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.red,
                         fontWeight: FontWeight.bold),
                   ),
                   title: Text(
-                    "Kiran Raj",
+                    "Rahul Vs",
                     style: GoogleFonts.anekGujarati(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -43,7 +46,7 @@ class _completedInvoiceState extends State<completedInvoice> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        "Invoice : INV-21-12-009",
+                        "Invoice : INV-21-12-010",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
                       ),
