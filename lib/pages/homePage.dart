@@ -81,25 +81,22 @@ class _homePageState extends State<homePage> {
                 },
               ),
               Container(
-                height: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width/1.2,
               ),
               Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Version 1.0.0",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            fontFamily: 'Montserrat',
-                            color: Colors.black),
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Version 1.0.0",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          fontFamily: 'Montserrat',
+                          color: Colors.black),
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
                 ),
               ),
               Container(

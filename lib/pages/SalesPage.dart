@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant/Model/cart_model.dart';
 import 'package:restaurant/Provider/cartProvider.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/db/db.dart';
 import 'package:restaurant/pages/cartPage.dart';
-import 'package:restaurant/pages/category/breakfastPage.dart';
-import 'package:restaurant/pages/category/lunchPage.dart';
 import 'package:restaurant/pages/customerNew.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:restaurant/pages/food%20category/dessert.dart';
+import 'package:restaurant/pages/food%20category/juicePage.dart';
+import 'package:restaurant/pages/food%20category/snacks.dart';
 
-import 'category/DinnerPage.dart';
+import 'food category/DinnerPage.dart';
+import 'food category/breakfastPage.dart';
+import 'food category/lunchPage.dart';
 
 class SalesPage extends StatefulWidget {
   const SalesPage({Key? key}) : super(key: key);
@@ -37,92 +39,136 @@ class _SalesPageState extends State<SalesPage> {
   ];
 
   final itemz = ['Linto', 'Rahul', 'Jubin', 'Rumaise'];
+
   String? value;
 
   DropdownMenuItem<String> BuildMenuItem(String item) => DropdownMenuItem(
         value: item,
         child: Text(
           item,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       );
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<CartProvider>(context);
     return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Sales",
-            style: GoogleFonts.aleo(letterSpacing: 3),
-          ),
-          centerTitle: true,
-          backgroundColor: colorAppbar,
-          elevation: 0,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(15),
-              ),
+      length: 6,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left: 10),
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFD4E7FE),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Colors.teal,
+                    ),
+                  ),
+                  child: DropdownButton(
+                    value: value,
+                    hint: const Text("Choose Customer"),
+                    dropdownColor: const Color(0xFFD4E7FE),
+                    icon: const Icon(Icons.arrow_drop_down_outlined),
+                    iconSize: 25,
+                    isExpanded: true,
+                    iconEnabledColor: Colors.teal,
+                    items: itemz.map(BuildMenuItem).toList(),
+                    onChanged: (value) => setState(() => this.value = value),
+                  ),
+                ),
+              ],
             ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
+            centerTitle: true,
+            backgroundColor: colorAppbar,
+            elevation: 0,
+            flexibleSpace: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(12)),
+            ),
+            actions: [
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: IconButton(
+              //     onPressed: () {
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => customerPage(),
+              //         ),
+              //       );
+              //     },
+              //     icon: Icon(Icons.add),
+              //   ),
+              // ),
+              IconButton(
                 onPressed: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => customerPage(),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const cartScreen()));
                 },
-                icon: Icon(Icons.add),
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => cartScreen()));
-              },
-              icon: badges.Badge(
-                badgeContent: Consumer<CartProvider>(
-                  builder: (context, value, child) {
-                    return Text(
-                      value.getCounter().toString(),
-                      style: TextStyle(color: Colors.white),
-                    );
-                  },
+                icon: badges.Badge(
+                  badgeContent: Consumer<CartProvider>(
+                    builder: (context, value, child) {
+                      return Text(
+                        value.getCounter().toString(),
+                        style: const TextStyle(color: Colors.white),
+                      );
+                    },
+                  ),
+                  child: const Icon(Icons.shopping_cart),
+                  badgeAnimation: const badges.BadgeAnimation.fade(
+                    animationDuration: Duration(microseconds: 2),
+                  ),
                 ),
-                child: Icon(Icons.shopping_cart),
-                badgeAnimation: badges.BadgeAnimation.fade(
-                  animationDuration: Duration(microseconds: 2),
+              )
+            ],
+            bottom: const TabBar(
+              isScrollable: true,
+              indicatorColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorWeight: 5,
+              tabs: [
+                Tab(
+                  text: "Breakfast",
                 ),
-              ),
-            )
-          ],
-          bottom: TabBar(tabs: [
-            Tab(
-              text: "Breakfast",
+                Tab(
+                  text: "Lunch",
+                ),
+                Tab(
+                  text: "Dinner",
+                ),
+                Tab(
+                  text: "Snacks",
+                ),
+                Tab(
+                  text: "Juice",
+                ),
+                Tab(
+                  text: "Desert",
+                ),
+              ],
             ),
-            Tab(
-              text: "Lunch",
-            ),
-            Tab(
-              text: "Dinner",
-            ),
-          ]),
-        ),
-        body: TabBarView(
-          children: [
-            breakFast(),
-            lunchPage(),
-            DinnerPage(),
-          ],
+          ),
+          body: const TabBarView(
+            children: [
+              breakFast(),
+              lunchPage(),
+              DinnerPage(),
+              SnacksPage(),
+              juicePage(),
+              dessertPage()
+            ],
+          ),
         ),
       ),
     );

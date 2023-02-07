@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
+import 'package:restaurant/pages/customerList/customerList.dart';
 
 class customerPage extends StatefulWidget {
   const customerPage({Key? key}) : super(key: key);
@@ -26,6 +27,15 @@ class _customerPageState extends State<customerPage> {
             ),
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => customerList()));
+            },
+            icon: Icon(Icons.list),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

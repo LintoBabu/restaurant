@@ -6,11 +6,15 @@ import '../Model/cart_model.dart';
 
 class CartProvider with ChangeNotifier {
   DBHelper db = DBHelper();
+
   int _counter = 0;
   int get counter => _counter;
 
   double _totalPrice = 0.0;
   double get totalprice => _totalPrice;
+
+  double _vatPrice = 20;
+  double get vatprice => _vatPrice;
 
   late Future<List<Cart>> _cart;
   Future<List<Cart>> get cart => _cart;
