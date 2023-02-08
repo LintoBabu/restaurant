@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class pendingMess extends StatefulWidget {
   const pendingMess({Key? key}) : super(key: key);
@@ -10,8 +10,75 @@ class pendingMess extends StatefulWidget {
 class _pendingMessState extends State<pendingMess> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Hello"),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                  elevation: 4,
+                  color: Colors.white,
+                  child: ExpansionTile(
+                    title: Text("Rahul"),
+                    subtitle: Text("10/02/2023"),
+                    children: [
+                      ListTile(
+                        title: Text("Breakfast"),
+                        subtitle: Text("Poori"),
+                        trailing: Column(
+                          children: [
+                            Text("10.00 AM"),
+                          ],
+                        ),
+                      ),
+                      ListTile(
+                        title: Text("Lunch"),
+                        subtitle: Text("Biriyani"),
+                        trailing: Text("1.00 PM"),
+                      ),
+                      ListTile(
+                        title: Text("Dinner"),
+                        subtitle: Text("Biriyani"),
+                        trailing: Text("Pending"),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                  elevation: 4,
+                  color: Colors.white,
+                  child: ExpansionTile(
+                    title: Text("Kiran"),
+                    subtitle: Text("11/02/2023"),
+                    children: [
+                      ListTile(
+                        title: Text("Breakfast"),
+                        subtitle: Text("Poori"),
+                        trailing: Column(
+                          children: [
+                            Text("Pending"),
+                          ],
+                        ),
+                      ),
+                      ListTile(
+                        title: Text("Lunch"),
+                        subtitle: Text("Fried Rice"),
+                        trailing: Text("Pending"),
+                      ),
+                      ListTile(
+                        title: Text("Dinner"),
+                        subtitle: Text("Shawarma"),
+                        trailing: Text("Pending"),
+                      ),
+                    ],
+                  )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
