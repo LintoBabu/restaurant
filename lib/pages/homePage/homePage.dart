@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/constants/colors.dart';
+import 'package:restaurant/pages/Delivery/DeliveryPage.dart';
+import 'package:restaurant/pages/MessPage/MessDetails/MessValidity/messDetailsValidity.dart';
 import 'package:restaurant/pages/MessPage/addMess.dart';
 import 'package:restaurant/pages/salesPage/SalesPage.dart';
 import 'package:restaurant/pages/customerList/customerNew.dart';
@@ -272,6 +274,84 @@ class _homePageState extends State<homePage> {
                         ),
                         Image.asset(
                           "assets/images/hot-pot.png",
+                          height: 60,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => deliveryPage()));
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Delivery",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/delivery-man.png",
+                          height: 60,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => messDetailsPackage()));
+                },
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Card(
+                    elevation: 7,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    color: buttonColors,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Mess Details",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset(
+                          "assets/images/restaurant.png",
                           height: 60,
                         )
                       ],

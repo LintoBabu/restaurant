@@ -40,7 +40,7 @@ class _pendingMessState extends State<pendingMess> {
                       ListTile(
                         title: Text("Dinner"),
                         subtitle: Text("Biriyani"),
-                        trailing: Text("Pending"),
+                        trailing: Text("Pending",style: TextStyle(color: Colors.red),),
                       ),
                     ],
                   )),
@@ -59,19 +59,19 @@ class _pendingMessState extends State<pendingMess> {
                         subtitle: Text("Poori"),
                         trailing: Column(
                           children: [
-                            Text("Pending"),
+                            Text("Pending",style: TextStyle(color: Colors.red)),
                           ],
                         ),
                       ),
                       ListTile(
                         title: Text("Lunch"),
                         subtitle: Text("Fried Rice"),
-                        trailing: Text("Pending"),
+                        trailing: Text("Pending",style: TextStyle(color: Colors.red)),
                       ),
                       ListTile(
                         title: Text("Dinner"),
                         subtitle: Text("Shawarma"),
-                        trailing: Text("Pending"),
+                        trailing: Text("Pending",style: TextStyle(color: Colors.red)),
                       ),
                     ],
                   )),

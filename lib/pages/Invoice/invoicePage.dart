@@ -26,14 +26,14 @@ class _invoicePageState extends State<invoicePage> {
             backgroundColor: colorAppbar,
             elevation: 0,
             flexibleSpace: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15),
                   bottomRight: Radius.circular(15),
                 ),
               ),
             ),
-            bottom: TabBar(
+            bottom: const TabBar(
               indicatorColor: Colors.white,
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorWeight: 5,
@@ -47,7 +47,7 @@ class _invoicePageState extends State<invoicePage> {
               ],
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               pendingInvoice(),
               completedInvoice(),
