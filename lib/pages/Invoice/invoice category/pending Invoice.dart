@@ -29,52 +29,63 @@ class _pendingInvoiceState extends State<pendingInvoice> {
                 );
               },
               child: Card(
-                child: ListTile(
-                  leading: const Text(
-                    "AED 65",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  title: Text(
-                    "Rahul Vs",
-                    style: GoogleFonts.anekGujarati(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Invoice : INV-21-12-010",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "14/02/2023",
-                        style: TextStyle(fontSize: 15),
-                      )
-                    ],
-                  ),
-                  trailing: PopupMenuButton(
-                    itemBuilder: (_) => [
-                      PopupMenuItem(
-                        height: 25,
-                        onTap: () {},
-                        child: Row(
-                          children: const [
-                            Icon(Icons.picture_as_pdf),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "PDF",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                elevation: 7,
+                child: Container(
+                  height: 83,
+                  child: ListTile(
+                    title: Text(
+                      "Rahul Vs",
+                      style: GoogleFonts.anekGujarati(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Invoice : INV-21-12-010",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                        Text(
+                          "14/02/2023",
+                          style: TextStyle(fontSize: 15),
+                        )
+                      ],
+                    ),
+                    trailing: Column(
+                      children: [
+                        Text(
+                          "AED 65",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          child: PopupMenuButton(
+                            itemBuilder: (_) => [
+                              PopupMenuItem(
+                                height: 25,
+                                onTap: () {},
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.picture_as_pdf),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      "PDF",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -15,7 +15,7 @@ class _completedInvoiceDetailsState extends State<completedInvoiceDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
+      appBar: AppBar(
         title: Text(
           "Invoice Completed Details",
           style: GoogleFonts.aleo(letterSpacing: 2),
@@ -38,7 +38,7 @@ class _completedInvoiceDetailsState extends State<completedInvoiceDetails> {
             Container(
               padding: EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/2,
+              height: MediaQuery.of(context).size.height / 2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -51,12 +51,10 @@ class _completedInvoiceDetailsState extends State<completedInvoiceDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "Name :  ",
-                            style: GoogleFonts.andadaPro(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          Icon(Icons.person_outline),
+                          SizedBox(
+                            width: 20,
                           ),
                           Text(
                             "Kiran Raj",
@@ -68,30 +66,13 @@ class _completedInvoiceDetailsState extends State<completedInvoiceDetails> {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Invoice  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text(
-                            "INV-21-12-009",
-                            style: GoogleFonts.andadaPro(
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Date  : ",
-                            style: GoogleFonts.andadaPro(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          Icon(Icons.sticky_note_2_sharp),
+                          SizedBox(
+                            width: 20,
                           ),
                           Text(
-                            "14/02/2023",
+                            "889663217",
                             style: GoogleFonts.andadaPro(
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
@@ -101,42 +82,74 @@ class _completedInvoiceDetailsState extends State<completedInvoiceDetails> {
                       ),
                       Row(
                         children: [
-                          Text("Food  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("Biriyani",
+                          Icon(Icons.date_range_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "14/01/2023",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.credit_card),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text("Cash",
                               style: GoogleFonts.andadaPro(
                                   fontSize: 20, fontWeight: FontWeight.bold)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text("Total Amount  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          Icon(Icons.request_page_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Total",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
                           Text("AED 85",
                               style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.orange)),
                         ],
+                      ),
+                      Divider(
+                        thickness: 2,
+                        color: Colors.black,
                       ),
                       Row(
                         children: [
-                          Text("Cash/Credit/Card  : ",
+                          Icon(Icons.price_change_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Status",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          Text("Completed",
                               style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("Card",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text("Status : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("Paid",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red)),
                         ],
                       ),
                     ],

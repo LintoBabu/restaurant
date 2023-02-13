@@ -165,8 +165,8 @@ class _customerPageState extends State<customerPage> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(60))),
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  height: 50,
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  height: 45,
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: ElevatedButton.icon(
                     label: Text(

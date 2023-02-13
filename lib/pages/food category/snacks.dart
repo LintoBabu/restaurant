@@ -71,107 +71,113 @@ class _SnacksPageState extends State<SnacksPage> {
                             productImage[index].toString(),
                           ),
                         ),
-                        Text(
-                          productName[index].toString(),
-                          style: GoogleFonts.arvo(fontSize: 18),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            productName[index].toString(),
+                            style: GoogleFonts.arvo(fontSize: 18),
+                          ),
                         ),
-                        Text(
-                          "\AED " + productPrice[index].toString(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.red),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "\AED " + productPrice[index].toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.red),
+                          ),
                         ),
-                        InkWell(
-                          onTap: () {
-                            dbHelper!
-                                .insert(
-                              Cart(
-                                id: index,
-                                productId: index.toString(),
-                                productName: productName[index].toString(),
-                                initialPrice: productPrice[index],
-                                productPrice: productPrice[index],
-                                quantity: 1,
-                                image: productImage[index].toString(),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {
+                              dbHelper!
+                                  .insert(
+                                Cart(
+                                  id: index,
+                                  productId: index.toString(),
+                                  productName: productName[index].toString(),
+                                  initialPrice: productPrice[index],
+                                  productPrice: productPrice[index],
+                                  quantity: 1,
+                                  image: productImage[index].toString(),
+                                ),
+                              )
+                                  .then((value) {
+                                final snackBar = SnackBar(
+                                  content: Row(
+                                    children: [
+                                      Text(
+                                        "Item Added to Cart",
+                                        style: GoogleFonts.aBeeZee(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        Icons.done,
+                                        color: Colors.white,
+                                        size: 20,
+                                      )
+                                    ],
+                                  ),
+                                  behavior: SnackBarBehavior.floating,
+                                  margin: EdgeInsets.all(15),
+                                  backgroundColor: colorAppbar,
+                                  elevation: 7,
+                                  duration: Duration(seconds: 1),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                                cart.addTotalPrice(double.parse(
+                                    productPrice[index].toString()));
+                                cart.addCounter();
+                              }).onError((error, stackTrace) {
+                                final snackBar = SnackBar(
+                                  content: Row(
+                                    children: [
+                                      Text(
+                                        "Product Already Exists in the Cart",
+                                        style: GoogleFonts.aBeeZee(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        Icons.warning,
+                                        color: Colors.white,
+                                        size: 18,
+                                      )
+                                    ],
+                                  ),
+                                  behavior: SnackBarBehavior.floating,
+                                  margin: EdgeInsets.all(15),
+                                  backgroundColor: colorAppbar,
+                                  elevation: 7,
+                                  duration: Duration(seconds: 1),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                                print(error.toString());
+                              });
+                            },
+                            child:  Container(
+                              height: 35,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: buttonColors,
+                                borderRadius: BorderRadius.circular(2),
                               ),
-                            )
-                                .then((value) {
-                              final snackBar = SnackBar(
-                                content: Row(
-                                  children: [
-                                    Text(
-                                      "Item Added to Cart",
-                                      style: GoogleFonts.aBeeZee(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.done,
-                                      color: Colors.white,
-                                      size: 20,
-                                    )
-                                  ],
-                                ),
-                                behavior: SnackBarBehavior.floating,
-                                margin: EdgeInsets.all(15),
-                                backgroundColor: colorAppbar,
-                                elevation: 7,
-                                duration: Duration(seconds: 1),
-                              );
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
-                              cart.addTotalPrice(
-                                  double.parse(productPrice[index].toString()));
-                              cart.addCounter();
-                            }).onError((error, stackTrace) {
-                              final snackBar = SnackBar(
-                                content: Row(
-                                  children: [
-                                    Text(
-                                      "Product Already Exists in the Cart",
-                                      style: GoogleFonts.aBeeZee(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.warning,
-                                      color: Colors.white,
-                                      size: 18,
-                                    )
-                                  ],
-                                ),
-                                behavior: SnackBarBehavior.floating,
-                                margin: EdgeInsets.all(15),
-                                backgroundColor: colorAppbar,
-                                elevation: 7,
-                                duration: Duration(seconds: 1),
-                              );
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
-                              print(error.toString());
-                            });
-                          },
-                          child: Container(
-                            height: 35,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: buttonColors,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Add",
-                                style: TextStyle(
+                              child: Center(
+                                  child: Icon(
+                                    Icons.add_circle_outline_outlined,
                                     color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                                  )),
                             ),
                           ),
                         ),

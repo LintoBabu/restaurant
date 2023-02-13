@@ -50,12 +50,10 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "Name :  ",
-                            style: GoogleFonts.andadaPro(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          Icon(Icons.person_outline),
+                          SizedBox(
+                            width: 20,
                           ),
                           Text(
                             "Rahul Vs",
@@ -67,11 +65,11 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Invoice  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          Icon(Icons.sticky_note_2_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
                           Text(
                             "INV-21-12-010",
                             style: GoogleFonts.andadaPro(
@@ -82,12 +80,10 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "Date  : ",
-                            style: GoogleFonts.andadaPro(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          Icon(Icons.date_range_sharp),
+                          SizedBox(
+                            width: 20,
                           ),
                           Text(
                             "14/02/2023",
@@ -100,29 +96,10 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
                       ),
                       Row(
                         children: [
-                          Text("Food  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("Biriyani",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text("Total Amount  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("AED 85",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text("Cash/Credit/Card  : ",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                          Icon(Icons.credit_card),
+                          SizedBox(
+                            width: 20,
+                          ),
                           Text("Credit",
                               style: GoogleFonts.andadaPro(
                                   fontSize: 20, fontWeight: FontWeight.bold)),
@@ -130,22 +107,70 @@ class _pendingInvoiceDetailsState extends State<pendingInvoiceDetails> {
                       ),
                       Row(
                         children: [
-                          Text("Cash Given : ",
+                          Icon(Icons.request_page_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Total",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          Text("AED 85",
                               style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text("AED 20",
-                              style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.orange)),
                         ],
                       ),
                       Row(
                         children: [
-                          Text("Balance : ",
+                          Icon(
+                            Icons.approval,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Cash Given",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          Text("AED 20",
                               style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text(" AED 65 ",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blueGrey)),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 2,color: Colors.black,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.price_change_sharp),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Balance",
+                            style: GoogleFonts.andadaPro(
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          Text("AED 65 ",
                               style: GoogleFonts.andadaPro(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red)),
                         ],
                       ),
                       ElevatedButton.icon(

@@ -59,28 +59,24 @@ class _SalesPageState extends State<SalesPage> {
           appBar: AppBar(
             title: Column(
               children: [
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: 10,
                 ),
                 Container(
                   padding: const EdgeInsets.only(left: 10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
+                  height: 45,
                   decoration: BoxDecoration(
                     color: const Color(0xFFD4E7FE),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: Colors.teal,
-                    ),
+                    borderRadius: BorderRadius.circular(4),
                   ),
                   child: DropdownButton(
+                    underline: SizedBox.shrink(),
                     value: value,
                     hint: const Text("Choose Customer"),
                     dropdownColor: const Color(0xFFD4E7FE),
                     icon: const Icon(Icons.arrow_drop_down_outlined),
                     iconSize: 25,
                     isExpanded: true,
-                    iconEnabledColor: Colors.teal,
                     items: itemz.map(BuildMenuItem).toList(),
                     onChanged: (value) => setState(() => this.value = value),
                   ),
@@ -95,20 +91,6 @@ class _SalesPageState extends State<SalesPage> {
                   BoxDecoration(borderRadius: BorderRadius.circular(12)),
             ),
             actions: [
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: IconButton(
-              //     onPressed: () {
-              //       Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //           builder: (context) => customerPage(),
-              //         ),
-              //       );
-              //     },
-              //     icon: Icon(Icons.add),
-              //   ),
-              // ),
               IconButton(
                 onPressed: () {
                   Navigator.push(

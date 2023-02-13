@@ -76,15 +76,6 @@ class _addMessPageState extends State<addMessPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => todayMessPage(),
-                    ));
-              },
-              icon: Icon(Icons.list)),
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
                       builder: (context) => MessSection(),
                     ));
               },
@@ -103,24 +94,30 @@ class _addMessPageState extends State<addMessPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
-                    color: Colors.teal,
+                    color: Colors.black,
                   ),
                 ),
                 child: DropdownButton(
+                  underline: SizedBox.shrink(),
                   value: value,
                   hint: const Text("Choose Customer"),
                   icon: const Icon(Icons.arrow_drop_down_outlined),
                   iconSize: 25,
                   isExpanded: true,
-                  iconEnabledColor: Colors.teal,
                   items: itemz.map(BuildMenuItem).toList(),
                   onChanged: (value) => setState(() => this.value = value),
                 ),
               ),
             ),
-            Text(
-              "Mess Section",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Mess Section",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+              ),
             ),
             SizedBox(
               height: 20,
@@ -202,6 +199,45 @@ class _addMessPageState extends State<addMessPage> {
               ),
             ),
             Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Payment Type",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.only(left: 10),
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: Colors.black,
+                  ),
+                ),
+                child: DropdownButton(
+                  underline: SizedBox.shrink(),
+                  value: paymentValue,
+                  hint: const Text("Choose Payment Type"),
+                  icon: const Icon(Icons.arrow_drop_down_outlined),
+                  iconSize: 25,
+                  isExpanded: true,
+                  iconEnabledColor: Colors.teal,
+                  items: payment.map(BuildMenuItem).toList(),
+                  onChanged: (value) =>
+                      setState(() => this.paymentValue = value),
+                ),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 maxLines: 4,
@@ -221,45 +257,13 @@ class _addMessPageState extends State<addMessPage> {
                 ),
               ),
             ),
-            Text(
-              "Payment Type",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: const EdgeInsets.only(left: 10),
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: Colors.teal,
-                  ),
-                ),
-                child: DropdownButton(
-                  value: paymentValue,
-                  hint: const Text("Choose Payment Type"),
-                  icon: const Icon(Icons.arrow_drop_down_outlined),
-                  iconSize: 25,
-                  isExpanded: true,
-                  iconEnabledColor: Colors.teal,
-                  items: payment.map(BuildMenuItem).toList(),
-                  onChanged: (value) =>
-                      setState(() => this.paymentValue = value),
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(60))),
-                width: MediaQuery.of(context).size.width / 1 / 2,
-                height: 40,
+                width: MediaQuery.of(context).size.width / 1.5,
+                height: 45,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton.icon(
                   label: Text(

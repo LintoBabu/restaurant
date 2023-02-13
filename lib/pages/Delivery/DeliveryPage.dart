@@ -53,7 +53,6 @@ class _deliveryPageState extends State<deliveryPage> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -68,6 +67,7 @@ class _deliveryPageState extends State<deliveryPage> {
                 ),
               ),
               child: DropdownButton(
+                underline: SizedBox.shrink(),
                 value: deliveryValue,
                 hint: const Text("Choose your Name"),
                 icon: const Icon(Icons.arrow_drop_down_outlined),
@@ -82,7 +82,7 @@ class _deliveryPageState extends State<deliveryPage> {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: DataTable(columns: [
+            child: DataTable(columnSpacing: 30.0, columns: [
               const DataColumn(
                 label: Text(
                   "Customer",

@@ -13,9 +13,6 @@ class CartProvider with ChangeNotifier {
   double _totalPrice = 0.0;
   double get totalprice => _totalPrice;
 
-  double _vatPrice = 20;
-  double get vatprice => _vatPrice;
-
   late Future<List<Cart>> _cart;
   Future<List<Cart>> get cart => _cart;
 
@@ -50,6 +47,12 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeTotalPrices(double productPrice) {
+    _totalPrice = _totalPrice - productPrice;
+    _setPrefItems();
+    notifyListeners();
+  }
+
   double getTotalPrice() {
     _getPrefItems();
     return _totalPrice;
@@ -63,6 +66,13 @@ class CartProvider with ChangeNotifier {
 
   void removeCounter() {
     _counter--;
+    _setPrefItems();
+    notifyListeners();
+  }
+
+  void initCounter() {
+    _counter = 0;
+    _totalPrice = 0.0;
     _setPrefItems();
     notifyListeners();
   }

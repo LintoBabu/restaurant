@@ -27,52 +27,63 @@ class _completedInvoiceState extends State<completedInvoice> {
                         builder: (context) => completedInvoiceDetails()));
               },
               child: Card(
-                child: ListTile(
-                  leading: const Text(
-                    "AED 85",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  title: Text(
-                    "Kiran Raj",
-                    style: GoogleFonts.anekGujarati(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Invoice : INV-21-12-009",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "14/02/2023",
-                        style: TextStyle(fontSize: 15),
-                      )
-                    ],
-                  ),
-                  trailing: PopupMenuButton(
-                    itemBuilder: (_) => [
-                      PopupMenuItem(
-                        height: 25,
-                        onTap: () {},
-                        child: Row(
-                          children: const [
-                            Icon(Icons.picture_as_pdf),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "PDF",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                elevation: 7,
+                child: Container(
+                  height: 83,
+                  child: ListTile(
+                    title: Text(
+                      "Kiran Raj",
+                      style: GoogleFonts.anekGujarati(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Invoice : 889663217",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
+                        Text(
+                          "14/01/2023",
+                          style: TextStyle(fontSize: 15),
+                        )
+                      ],
+                    ),
+                    trailing: Column(
+                      children: [
+                        Text(
+                          "AED 85",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          child: PopupMenuButton(
+                            itemBuilder: (_) => [
+                              PopupMenuItem(
+                                height: 25,
+                                onTap: () {},
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.picture_as_pdf),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      "PDF",
+                                      style:
+                                          TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant/constants/colors.dart';
 import 'package:restaurant/pages/homePage/homePage.dart';
+
+import '../../../Provider/cartProvider.dart';
+import '../../../db/db.dart';
 
 class SuccessPage extends StatefulWidget {
   const SuccessPage({Key? key}) : super(key: key);
@@ -10,8 +14,11 @@ class SuccessPage extends StatefulWidget {
 }
 
 class _SuccessPageState extends State<SuccessPage> {
+  DBHelper? dbHelper = DBHelper();
+
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -34,6 +41,11 @@ class _SuccessPageState extends State<SuccessPage> {
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: ElevatedButton(
               onPressed: () {
+                setState(() {
+                  cart.initCounter();
+                });
+
+                dbHelper!.deleteAll();
                 Navigator.pop(
                   context,
                   MaterialPageRoute(
